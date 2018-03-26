@@ -1,0 +1,100 @@
+<div class="row">
+  <div class="col col-md"></div>
+  <div class="col col-md-8">
+    <h2>Añadir nuevo usuario</h2>
+    <a class="btn btn-warning float-md-right" routerLink="/usuarios">Regresar</a>
+    <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text"
+                class="form-control"
+                id="nombre"
+                formControlName="nombre">
+        <p class="alert alert-danger"
+            *ngIf="usuarioForm.controls.nombre.invalid &&
+                    usuarioForm.controls.nombre.touched">
+          El campo Nombre es obligatorio.          
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="direccion">Direccion</label>
+        <input type="text"
+                class="form-control"
+                id="direccion"
+                formControlName="direccion">
+        <p class="alert alert-danger"
+            *ngIf="usuarioForm.controls.direccion.invalid &&
+                    usuarioForm.controls.direccion.touched">
+          El campo Direccion es obligatorio.          
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="telefono">Telefono</label>
+        <input type="text"
+                class="form-control"
+                id="telefono"
+                formControlName="telefono">
+        <p class="alert alert-danger"
+            *ngIf="usuarioForm.controls.telefono.invalid &&
+                    usuarioForm.controls.telefono.touched">
+          El campo Telefono es obligatorio.          
+        </p>
+      </div>
+      <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email"
+                  class="form-control"
+                  id="email"
+                  formControlName="email">
+          <p class="alert alert-danger"
+              *ngIf="usuarioForm.controls.email.invalid &&
+                      usuarioForm.controls.email.touched">
+            El campo email es obligatorio.          
+          </p>
+        </div>
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input type="password"
+                  class="form-control"
+                  id="password"
+                  formControlName="password">
+          <p class="alert alert-danger"
+              *ngIf="usuarioForm.controls.password.invalid &&
+                      usuarioForm.controls.password.touched">
+            El campo Contraseña es obligatorio.          
+          </p>
+        </div>
+        <div class="form-group">
+          <label for="tipousuario">Tipo de Usuario</label>
+          <select class="form-control"
+                  id="tipousuario"
+                  formControlName="tipousuario">
+                  <option value="">Seleccione...</option>
+                  <option value="Lider">Lider</option>
+                  <option value="Supervisor Auxiliar">Supervisor Auxiliar</option>
+                  <option value="Supervisor de Sector">Supervisor de Sector</option>
+                  <option value="Coordinador">Coordinador</option>
+                  <option value="Pastor de Zona">Pastor de Zona</option>
+                  <option value="Pastor General">Pastor General</option>      
+          </select>
+          <p class="alert alert-danger"
+              *ngIf="usuarioForm.controls.tipousuario.invalid &&
+                      usuarioForm.controls.tipousuario.touched">
+            El campo Tipo usuario es obligatorio.          
+          </p>
+        </div>
+      
+        <button type="submit"
+                class="btn btn-primary"
+                [disabled]="!usuarioForm.valid">
+                Añadir Usuario
+        </button>
+        <a class="btn btn-danger" routerLink="/usuarios">Cancelar</a>
+        <p class="alert alert-danger"
+            *ngIf="!usuarioForm.valid">
+          Favor de llenar todos los campos obligatorio
+        </p>
+    </form>
+  </div>
+  <div class="col col-md"></div>
+</div>

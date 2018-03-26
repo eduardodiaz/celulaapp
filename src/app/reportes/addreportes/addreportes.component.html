@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col col-md"></div>
+    <div class="col-10 col-md-8">
+      <h2>Añadir nuevo reporte</h2>
+      <form [formGroup]="reporteForm" (ngSubmit)="obSubmit()">
+        <div class="form-group">
+          <label for="fecha">Fecha</label>
+          <input type="date"
+                  class="form-control"
+                  id="fecha"
+                  formControlName="fecha">
+            <p class="alert alert-danger"
+                *ngIf="reporteForm.controls.fecha.invalid &&
+                        reporteForm.controls.fecha.touched">
+              El campo Fecha es obligatorio.        
+              </p>
+        </div>
+        <div class="form-group">
+          <label for="semanaleccion">Semana-Leccion</label>
+          <input type="text"
+                  class="form-control"
+                  id="semanaleccion"
+                  formControlName="semanaleccion">
+            <p class="alert alert-danger"
+                *ngIf="reporteForm.controls.semanaleccion.invalid &&
+                        reporteForm.controls.semanaleccion.touched">
+              El campo Semana-Leccion es obligatorio.        
+              </p>
+        </div>
+        <div class="form-group">
+          <label for="verbo">Verbo-Meta</label>
+          <input type="text"
+                  class="form-control"
+                  id="verbo"
+                  formControlName="verbo">
+            <p class="alert alert-danger"
+                *ngIf="reporteForm.controls.verbo.invalid &&
+                        reporteForm.controls.verbo.touched">
+              El campo Verbo-Meta es obligatorio.        
+              </p>
+        </div>
+        <div class="form-group">
+          <label for="evento">Evento</label>
+          <input type="text"
+                  class="form-control"
+                  id="evento"
+                  formControlName="evento">
+            <p class="alert alert-danger"
+                *ngIf="reporteForm.controls.evento.invalid &&
+                        reporteForm.controls.evento.touched">
+              El campo Evento es obligatorio.        
+              </p>
+        </div>
+        <button type="submit"
+                class="btn btn-primary"
+                [disabled]="!reporteForm.valid">
+                Añadir Reporte      
+        </button>
+        <p class="alert alert-danger"
+        *ngIf="!reporteForm.valid">
+          Por favor de llenar todos los campos obligatorios
+        </p>
+      </form>
+      </div>
+      <div class="col col-md"></div>
+      </div>

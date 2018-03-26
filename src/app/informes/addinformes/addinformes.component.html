@@ -1,0 +1,179 @@
+<div class="row">
+  <div class="col col-md"></div>
+  <div class="col-10 col-md-8">
+    <h2>Añadir nuevo informe</h2>
+    <a class="btn btn-warning float-md-right" style="margin-bottom:15px" routerLink="/informes">Regresar</a>
+    <form [formGroup]="informeForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="lidercelula">Lider</label>
+        <input type="text"
+                class="form-control"
+                id="lidercelula"
+                formControlName="lidercelula">
+          <p class="alert alert-danger"
+              *ngIf="informeForm.controls.lidercelula.invalid && 
+                    informeForm.controls.lidercelula.touched">
+            El campo Lider es obligatorio  
+          </p>
+      </div>
+      <div class="form-group">
+        <label for="semanaleccion">Semana-Leccion</label>
+        <input type="text"
+                class="form-control"
+                id="semanaleccion"
+                formControlName="semanaleccion">
+          <p class="alert alert-danger"
+              *ngIf="informeForm.controls.semanaleccion.invalid && 
+                    informeForm.controls.semanaleccion.touched">
+            El campo Semana-Leccion es obligatorio  
+          </p>
+      </div>
+      <hr>
+  <div class="container">
+    <div class="row">
+    <div class="col-5 col-md-4">
+      <div class="form-group">
+        <label for="mepcol">Colaboradores al MEP</label>
+        <input type="number"
+                class="form-control"
+                id="mepcol"
+                formControlName="mepcol">
+          <p class="alert alert-danger"
+              *ngIf="informeForm.controls.mepcol.invalid && 
+                    informeForm.controls.mepcol.touched">
+            El campo Colaboradores al MEP es obligatorio  
+          </p>
+      </div>
+      <div class="form-group">
+        <label for="celulacol">Colaboradores a la celula</label>
+        <input type="number"
+                class="form-control"
+                id="celulacol"
+                formControlName="celulacol">
+          <p class="alert alert-danger"
+              *ngIf="informeForm.controls.celulacol.invalid && 
+                    informeForm.controls.celulacol.touched">
+            El campo Colaboradores a la celula es obligatorio  
+          </p>
+      </div>
+      <div class="form-group">
+        <label for="ebcol">Colaboradores E.B.</label>
+        <input type="number"
+                class="form-control"
+                id="ebcol"
+                formControlName="ebcol">
+          <p class="alert alert-danger"
+              *ngIf="informeForm.controls.ebcol.invalid && 
+                    informeForm.controls.ebcol.touched">
+            El campo Colaboradores E.B. es obligatorio  
+          </p>
+      </div>
+      <div class="form-group">
+          <label for="cultocol">Colaboradores al culto</label>
+          <input type="number"
+                  class="form-control"
+                  id="cultocol"
+                  formControlName="cultocol">
+            <p class="alert alert-danger"
+                *ngIf="informeForm.controls.cultocol.invalid && 
+                      informeForm.controls.cultocol.touched">
+              El campo Colaboradores al culto es obligatorio  
+            </p>
+        </div>
+    </div>
+      <hr>
+    <div class="col-5 col-md-4">
+      <div class="form-group">
+        <label for="celulaami">Amigos a la celula</label>
+        <input type="number"
+                class="form-control"
+                id="celulaami"
+                formControlName="celulaami">
+          <p class="alert alert-danger"
+              *ngIf="informeForm.controls.celulaami.invalid && 
+                    informeForm.controls.celulaami.touched">
+            El campo Amigos a la celula es obligatorio  
+          </p>
+      </div>
+      <div class="form-group">
+        <label for="ebami">Amigos E.B.</label>
+        <input type="number"
+                class="form-control"
+                id="ebami"
+                formControlName="ebami">
+          <p class="alert alert-danger"
+              *ngIf="informeForm.controls.ebami.invalid && 
+                    informeForm.controls.ebami.touched">
+            El campo Amigos E.B. es obligatorio  
+          </p>
+      </div>
+      <div class="form-group">
+        <label for="cultoami">Amigos al Culto</label>
+        <input type="number"
+                class="form-control"
+                id="cultoami"
+                formControlName="cultoami">
+          <p class="alert alert-danger"
+              *ngIf="informeForm.controls.cultoami.invalid && 
+                    informeForm.controls.cultoami.touched">
+            El campo Amigos al Culto es obligatorio  
+          </p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+      <div class="form-group">
+        <label for="puntos">Puntacion</label>
+        <input type="number"
+                class="form-control"
+                id="puntos"
+                formControlName="puntos">
+          <p class="alert alert-danger"
+              *ngIf="informeForm.controls.puntos.invalid && 
+                    informeForm.controls.puntos.touched">
+            El campo Puntacion es obligatorio  
+          </p>
+      </div>
+      <div class="form-group">
+        <label for="dinero">dinero</label>
+        <input type="number"
+                class="form-control"
+                id="dinero"
+                formControlName="dinero">
+          <p class="alert alert-danger"
+              *ngIf="informeForm.controls.dinero.invalid && 
+                    informeForm.controls.dinero.touched">
+            El campo Ofrenda es obligatorio  
+          </p>
+      </div>
+      <div class="form-group">
+        <label for="meta">Logro Meta</label>
+        <input type="number"
+                class="form-control"
+                id="meta"
+                formControlName="meta">
+          <p class="alert alert-danger"
+              *ngIf="informeForm.controls.meta.invalid && 
+                    informeForm.controls.meta.touched">
+            El campo Logro Meta es obligatorio  
+          </p>
+      </div>
+  </div>
+      
+      <button type="submit"
+              class="btn btn-primary"
+              [disabled]="!informeForm.valid">
+              Añadir Informe
+      </button>
+      <a class="btn btn-danger" routerLink="/informes">Cancelar</a>
+      <p class="alert alert-danger"
+        *ngIf="!informeForm.valid">
+        Por favor de llenar todos los campos obligatorios
+      </p> 
+
+    </form>
+    
+    </div>
+  <div class="col col-md"></div>
+</div>

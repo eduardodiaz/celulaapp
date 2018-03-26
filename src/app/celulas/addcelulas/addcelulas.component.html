@@ -1,0 +1,123 @@
+<div class="row">
+  <div class="col col-md"></div>
+  <div class="col-10 col-md-8">
+    <h2>Añadir nuevo celula</h2>
+    <form [formGroup]="celulaForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nocelula"># Celula</label>
+        <input type="number"
+                class="form-control"
+                id="nocelula"
+                formControlName="nocelula">
+          <p class="alert alert-danger"
+              *ngIf="celulaForm.controls.nocelula.invalid &&
+                celulaForm.controls.nocelula.touched">
+            El campo # Celula es obligatorio.
+          </p>
+      </div>
+      <div class="form-group">
+        <label for="lider">Lider</label>
+        <select class="form-control"
+                  id="lider"
+                  formControlName="lider">
+                  <option value="">Seleccione...</option>
+                  <option value="lider">Lider</option>
+                  <option value="supaux">Supervisor Auxiliar</option>
+                  <option value="supsec">Supervisor de Sector</option>
+                  <option value="coordinador">Coordinador</option>
+                  <option value="pastorzona">Pastor de Zona</option>
+                  <option value="pastorgeneral">Pastor General</option>
+          </select>
+          <p class="alert alert-danger"
+              *ngIf="celulaForm.controls.lider.invalid &&
+                      celulaForm.controls.lider.touched">
+            El campo Lider es obligatorio.
+          </p>
+      </div>
+      <div class="form-group">
+          <label for="nocolaboradores"># Colaboradores</label>
+          <input type="number"
+                  class="form-control"
+                  id="nocolaboradores"
+                  formControlName="nocolaboradores">
+            <p class="alert alert-danger"
+                *ngIf="celulaForm.controls.nocolaboradores.invalid &&
+                        celulaForm.controls.nocolaboradores.touched">
+              El campo # Colaboradores es obligatorio.
+            </p>
+        </div>
+
+      <div class="form-group">
+        <label for="direccion">Direccion</label>
+        <input type="text"
+                class="form-control"
+                id="direccion"
+                formControlName="direccion">
+          <p class="alert alert-danger"
+              *ngIf="celulaForm.controls.direccion.invalid &&
+                celulaForm.controls.direccion.touched">
+            El campo Direccion es obligatorio.
+          </p>
+      </div>
+      <div class="form-group">
+        <label for="dhreunion">Dia-Hora reunion</label>
+        <input type="date"
+                class="form-control"
+                id="dhreunion"
+                formControlName="dhreunion">
+          <p class="alert alert-danger"
+              *ngIf="celulaForm.controls.dhreunion.invalid &&
+                celulaForm.controls.dhreunion.touched">
+            El campo Dia-Hora reunion es obligatorio.
+          </p>
+      </div>
+      <div class="form-group">
+        <label for="pastorzona">Pastor de Zona</label>
+        <input type="text"
+                class="form-control"
+                id="pastorzona"
+                formControlName="pastorzona">
+          <p class="alert alert-danger"
+              *ngIf="celulaForm.controls.pastorzona.invalid &&
+                celulaForm.controls.pastorzona.touched">
+            El campo Pastor de Zona es obligatorio.
+          </p>
+      </div>
+      <div class="form-group">
+        <label for="supaux">Supervisor Auxiliar</label>
+        <input type="text"
+                class="form-control"
+                id="supaux"
+                formControlName="supaux">
+          <p class="alert alert-danger"
+              *ngIf="celulaForm.controls.supaux.invalid &&
+                celulaForm.controls.supaux.touched">
+            El campo Supervisor Auxiliar es obligatorio.
+          </p>
+      </div>
+      <div class="form-group">
+        <label for="supsec">Supervisor Sector</label>
+        <input type="text"
+                class="form-control"
+                id="supsec"
+                formControlName="supsec">
+          <p class="alert alert-danger"
+              *ngIf="celulaForm.controls.supsec.invalid &&
+                celulaForm.controls.supsec.touched">
+              El campo Supervisor Sector es obligatorio.
+          </p>
+      </div>
+      <button type="submit"
+              class="btn btn-primary"
+              [disabled]="!celulaForm.valid">
+              Añadir Celula
+      </button>
+      <p class="alert alert-danger"
+      *ngIf="!celulaForm.valid">
+        Por favor de llenar todos los campos obligatorios.
+      </p>
+
+    </form>
+    </div>
+  <div class="col col-md"></div>
+</div>

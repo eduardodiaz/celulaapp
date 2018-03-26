@@ -1,0 +1,43 @@
+<h3>Listado de Celulas</h3>
+<a class="btn btn-primary float-md-right" routerLink="/addcelulas">Añadir nueva celula <i class="fas fa-user-plus"></i></a>
+
+<div *ngIf="cargando" class="text-center" style="padding-top: 60px">
+  <img src="../../../assets/cargando.gif" alt="cargando">
+</div>
+<br>
+<div *ngIf="!cargando">
+<table class="table table-bordered table-hover table-sm" style="margin-top: 40px">
+  <thead>
+    <tr class="filters">
+      <th># Celula</th>
+      <th>Lider</th>
+      <th># Colaboradores</th>
+      <th>Direccion</th>
+      <th>DH reunion</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let celula of celulas">
+      <td>{{ celula.nocelula}}</td>
+      <td>{{ celula.lider }}</td>
+      <td>{{ celula.nocolaboradores }}</td>
+      <td>{{ celula.direccion }}</td>
+      <td>{{ celula.dhreunion }}</td>
+      <td>
+        <button type="button" class="btn btn-success"
+                  routerLink="/editcelulas/{{ celula.id$ }}">
+                  <i class="fas fa-pencil-alt"></i>
+        </button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-danger"
+                (click)="eliminarCelula(celula.id$)">
+                <i class="fas fa-trash-alt"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>

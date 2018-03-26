@@ -5,4 +5,14 @@
 
 export const environment = {
   production: false
+  /*,
+  firebase: {
+  apiKey: "AIzaSyBedK7ihYIIc-p7tX_JO5c3hzV_RbRoy58",
+  authDomain: "appcelula7.firebaseapp.com",
+  databaseURL: "https://appcelula7.firebaseio.com",
+  projectId: "appcelula7",
+  storageBucket: "",
+  messagingSenderId: "71814073208"
+  }
+*/
 };

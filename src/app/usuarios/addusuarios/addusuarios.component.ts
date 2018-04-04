@@ -3,6 +3,8 @@ import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { UsuariosService } from '../../servicios/usuarios.service';
 
 
+
+
 @Component({
   selector: 'app-addusuarios',
   templateUrl: './addusuarios.component.html',
@@ -22,8 +24,11 @@ export class AddusuariosComponent implements OnInit {
       direccion: ['', Validators.required ],
       telefono: ['', Validators.required ],
       tipousuario: ['', Validators.required ],
-      email: ['', [Validators.required, Validators.email ] ],
-      password: ['', Validators.required ]
+      email: ['', [Validators.required, Validators.email ]],
+      /*'password': ['', [Validators.required, 
+        Validators.pattern('^(?=.*[0-9])(?=/*[a-zA-Z])([a-zA-Z0-9]+$)'), 
+        Validators.minLength(8)
+      ]] */
     });
   }
 
@@ -43,7 +48,7 @@ export class AddusuariosComponent implements OnInit {
       telefono: this.usuarioForm.get('telefono').value,
       tipousuario: this.usuarioForm.get('tipousuario').value,
       email: this.usuarioForm.get('email').value,
-      password: this.usuarioForm.get('password').value
+     /* password: this.usuarioForm.get('password').value*/
     }
 
     return saveUsuario;

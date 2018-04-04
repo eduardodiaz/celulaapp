@@ -32,8 +32,8 @@ export class EdittusuariosComponent implements OnInit {
       direccion: ['', Validators.required ],
       telefono: ['', Validators.required ],
       tipousuario: ['', Validators.required ],
-      email: ['', [Validators.required, Validators.email ] ],
-      password: ['', Validators.required ]
+      email: ['', [Validators.required, Validators.email ] ]
+      //password: ['', Validators.required ]
     });
   }
 
@@ -53,7 +53,7 @@ export class EdittusuariosComponent implements OnInit {
       telefono: this.usuarioForm.get('telefono').value,
       tipousuario: this.usuarioForm.get('tipousuario').value,
       email: this.usuarioForm.get('email').value,
-      password: this.usuarioForm.get('password').value
+      //password: this.usuarioForm.get('password').value
     }
 
     return saveUsuario;

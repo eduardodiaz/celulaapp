@@ -26,6 +26,9 @@ import { ConcentradoComponent } from './concentrado/concentrado/concentrado.comp
 import { EdittusuariosComponent } from './usuarios/edittusuarios/edittusuarios.component';
 import { EditcelulasComponent } from './celulas/editcelulas/editcelulas.component';
 import { InformesService } from './servicios/informes.service';
+import { IniciosesionComponent } from './autentificacion/iniciosesion/iniciosesion.component';
+import { AutentificacionService } from './servicios/autentificacion.service';
+import { RegistroComponent } from './autentificacion/registro/registro.component';
 //import { AddcelulasComponent } from './celulas/addcelulas/addcelulas.component';
 
 
@@ -49,6 +52,8 @@ const routes: Routes = [
   { path: 'informes', component: InformesComponent },
   { path: 'addinformes', component: AddinformesComponent },
   { path: 'concentrado', component: ConcentradoComponent},
+  { path: 'login', component: IniciosesionComponent},
+  { path: 'registro', component: RegistroComponent }, 
   { path: '**', component: InicioComponent }
 ];
 
@@ -70,6 +75,8 @@ const routes: Routes = [
     ConcentradoComponent,
     EdittusuariosComponent,
     EditcelulasComponent,
+    IniciosesionComponent,
+    RegistroComponent,
     //AddcelulasComponent
   ],
   imports: [
@@ -85,7 +92,8 @@ const routes: Routes = [
     UsuariosService,
     CelulasService,
     ReportesService,
-    InformesService ],
+    InformesService,
+    AutentificacionService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

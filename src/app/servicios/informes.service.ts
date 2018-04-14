@@ -60,4 +60,14 @@ export class InformesService {
       }
     }
   }
+
+  getInformeFecha(busqueda: string){
+    //indica cual sera el campo a buscar
+    const url = (`${this.informesURL }?orderBy="lidercelula"&startAt="${ busqueda }"&endAt="${busqueda}\uf8ff"`)
+    return this.http.get(url)
+      .map( res=> res.json());
+  }
+
+
+
 }

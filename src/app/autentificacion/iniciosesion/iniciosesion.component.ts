@@ -15,6 +15,7 @@ export class IniciosesionComponent implements OnInit {
   userdata: any;
   
   mensaje = false;
+  autenticando = false;
 
   constructor(private formBuilder: FormBuilder,
               private autentificacionService: AutentificacionService,
@@ -33,11 +34,13 @@ export class IniciosesionComponent implements OnInit {
 }
 
 onSubmit(){
+  this.autenticando = true;
   this.userdata = this.saveUserdata();
   this.autentificacionService.inicioSesion(this.userdata);
   setTimeout(() => {
     if(this.isAuth() === false ) {
       this.mensaje = true;
+      this.autenticando = false;
     }
   }, 2000);
 }
@@ -54,6 +57,7 @@ saveUserdata(){
 isAuth(){
   return this.autentificacionService.isAuthenticated();
 }
+
 
 
   }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UsuariosService } from '../../servicios/usuarios.service';
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 
 
@@ -16,7 +18,9 @@ export class AddusuariosComponent implements OnInit {
   usuario: any;
 
   constructor(private pf: FormBuilder,
-              private usuarioService: UsuariosService) { }
+              private usuarioService: UsuariosService,
+              private activatedRouter: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
     this.usuarioForm = this.pf.group({
@@ -38,6 +42,11 @@ export class AddusuariosComponent implements OnInit {
       .subscribe(newusuario => {
         
       })
+      confirm('Haz creado un nuevo usuario, pasaras a establecer su contraseña');
+        if(confirm){
+          this.router.navigate(['/registro']);
+
+        }
       this.usuarioForm.reset();
   }
 

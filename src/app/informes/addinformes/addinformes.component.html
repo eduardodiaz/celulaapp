@@ -18,7 +18,7 @@
       </div>
       <div class="form-group">
         <label for="semanaleccion">Semana-Leccion</label>
-        <input type="text"
+        <input type="date"
                 class="form-control"
                 id="semanaleccion"
                 formControlName="semanaleccion">
@@ -124,39 +124,39 @@
 
   <hr>
       <div class="form-group">
-        <label for="puntos">Puntacion</label>
+        <label for="puntuacion">Puntacion</label>
         <input type="number"
                 class="form-control"
-                id="puntos"
-                formControlName="puntos">
+                id="puntuacion"
+                formControlName="puntuacion">
           <p class="alert alert-danger"
-              *ngIf="informeForm.controls.puntos.invalid && 
-                    informeForm.controls.puntos.touched">
+              *ngIf="informeForm.controls.puntuacion.invalid && 
+                    informeForm.controls.puntuacion.touched">
             El campo Puntacion es obligatorio  
           </p>
       </div>
       <div class="form-group">
-        <label for="dinero">dinero</label>
+        <label for="ofrenda">Ofrenda</label>
         <input type="number"
                 class="form-control"
-                id="dinero"
-                formControlName="dinero">
+                id="ofrenda"
+                formControlName="ofrenda">
           <p class="alert alert-danger"
-              *ngIf="informeForm.controls.dinero.invalid && 
-                    informeForm.controls.dinero.touched">
+              *ngIf="informeForm.controls.ofrenda.invalid && 
+                    informeForm.controls.ofrenda.touched">
             El campo Ofrenda es obligatorio  
           </p>
       </div>
       <div class="form-group">
-        <label for="meta">Logro Meta</label>
+        <label for="metrica">Metrica</label>
         <input type="number"
                 class="form-control"
-                id="meta"
-                formControlName="meta">
+                id="metrica"
+                formControlName="metrica">
           <p class="alert alert-danger"
-              *ngIf="informeForm.controls.meta.invalid && 
-                    informeForm.controls.meta.touched">
-            El campo Logro Meta es obligatorio  
+              *ngIf="informeForm.controls.metrica.invalid && 
+                    informeForm.controls.metrica.touched">
+            El campo Metrica es obligatorio  
           </p>
       </div>
   </div>

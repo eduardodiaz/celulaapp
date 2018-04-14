@@ -2,7 +2,7 @@
   <div class="col col-md"></div>
   <div class="col-10 col-md-8">
     <h2>Editar Celula</h2>
-    <a class="btn btn-warning float-md-right" routerLink="/celulas">Regresar</a>
+    <a class="btn btn-warning float-md-right" routerLink="/celulas"><i class="fas fa-undo-alt"></i> Regresar</a>
     <form [formGroup]="celulaForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="nocelula"># Celula</label>
@@ -57,19 +57,42 @@
             El campo Direccion es obligatorio.
           </p>
       </div>
-      <div class="form-group">
-        <label for="dhreunion">Dia-Hora reunion</label>
-        <input type="date"
-                class="form-control"
-                id="dhreunion"
-                formControlName="dhreunion"
-                [(ngModel)]="celula.dhreunion">
-          <p class="alert alert-danger"
-              *ngIf="celulaForm.controls.dhreunion.invalid &&
-                celulaForm.controls.dhreunion.touched">
-            El campo Dia-Hora reunion es obligatorio.
-          </p>
-      </div>
+      <div class="container">
+          <div class="row">
+            <div class="col col-md-2">
+              <div class="form-group">
+                <label for="hrreunion">Hora</label>
+                <input type="time" 
+                        class="form-control" 
+                        id="hrreunion"
+                        formControlName="hrreunion"
+                        [(ngModel)]="celula.hrreunion">
+                <p class="alert alert-danger"
+                *ngIf="celulaForm.controls.hrreunion.invalid &&
+                  celulaForm.controls.hrreunion.touched">
+                  El campo Hora reunion es obligatorio.
+                  </p>
+                        
+              </div>
+            </div>
+            <div class="col col-md-10">
+              <div class="form-group">
+                <label for="diareunion">Dia reunion</label>
+                <input type="text" 
+                        class="form-control"
+                        id="diareunion"
+                        formControlName="diareunion"
+                        [(ngModel)]="celula.diareunion">
+                  <p class="alert alert-danger"
+                  *ngIf="celulaForm.controls.diareunion.invalid &&
+                    celulaForm.controls.diareunion.touched">
+                    El campo Dia reunion obligatorio.
+                  </p>
+              </div>
+            </div>
+          </div>
+  
+        </div>
       <div class="form-group">
         <label for="pastorzona">Pastor de Zona</label>
         <input type="text"

@@ -61,9 +61,16 @@ export class UsuariosService {
   }
 }
 
-  getUsuariosSearch(busqueda: string){
+  getUsuariosSearchnombre(busqueda: string){
     //indica cual sera el campo a buscar
-    const url = `${this.usuarioURL}?orderBy="tipousuario"&startAt="${busqueda}"&&endAt="${busqueda}\uf8ff"`
+    const url = (`${this.usuarioURL }?orderBy="nombre"&startAt="${ busqueda }"&endAt="${busqueda}\uf8ff"`)
+    return this.http.get(url)
+      .map( res=> res.json());
+  }
+
+  getUsuariosSearchtipo(busqueda: string){
+    //indica cual sera el campo a buscar
+    const url = (`${this.usuarioURL }?orderBy="tipousuario"&startAt="${ busqueda }"&endAt="${busqueda}\uf8ff"`)
     return this.http.get(url)
       .map( res=> res.json());
   }

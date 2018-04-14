@@ -19,7 +19,12 @@
       <hr>
       <button type="submit"
               class="btn btn-primary"
-              [disabled]="!loginForm.valid">Inicie Sesion</button>
+              [disabled]="!loginForm.valid"
+              *ngIf="!autenticando">Inicie Sesion</button>
+      <button type="submit"
+              class="btn btn-primary"
+              *ngIf="autenticando">Iniciando sesion...</button>
+      
     </form>
     <p class="alert alert-danger" 
       *ngIf="mensaje">
@@ -27,14 +32,8 @@
 
     </p>
     <hr>
-    <div>
-      <p>Entra con tu cuenta de Google</p>
-      <button type="button" class="btn btn-outline-primary"
-        (click)="ingresar('Google')">
-        Google
-      </button>
-    </div>
-    <p>Si aun no estas registrado, entra <a routerLink="/registro"> aqui</a></p>
+    
+    <p>Si aun no estas registrado, pongase en contacto con el administrador.</p>
   </div>
   <div class="col col-md"></div>
 </div>

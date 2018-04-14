@@ -62,6 +62,13 @@ export class CelulasService {
     }
   }
 
+  getCelulaLider(busqueda: string){
+    //indica cual sera el campo a buscar
+    const url = (`${this.celulaURL }?orderBy="lider"&startAt="${ busqueda }"&endAt="${busqueda}\uf8ff"`)
+    return this.http.get(url)
+      .map( res=> res.json());
+  }
+
 
 
 }

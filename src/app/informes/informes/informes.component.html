@@ -1,8 +1,9 @@
 <h3>Informes</h3>
 
 <a class="btn btn-primary float-md-right" routerLink="/addinformes">Añadir nuevo Informe <i class="fas fa-user-plus"> </i></a>
-<br>
-<form>
+<input type="text" class="form-control" placeholder="seleccione una fecha"
+  [formControl]="campoBusqueda">
+<!-- <form>
   <label for="semana">Semana</label>
   <input type="date" class="form-control" name="semana" id="semana">
   <label for="año">Año</label>
@@ -10,12 +11,20 @@
   <button type="submit" class="btn btn-primary">
     Buscar
   </button>
-</form>
+</form> -->
+
+<div *ngIf="cargando" class="text-center" style="padding-top:60px">
+  <img src="../../../assets/cargando.gif" alt="cargando">
+</div>
+
+
+
+<div *ngIf="resultados">
 <table class="table table-bordered table-hover table-sm">
   <thead>
     <tr class="filters">
       <th>Grupo</th>
-      <th>Meta</th>
+      <th>Metrica</th>
       <th>MEP</th>
       <th>Celula</th>
       <th>Culto</th>
@@ -30,7 +39,7 @@
   <tbody>
     <tr *ngFor="let informe of informes">
       <td>{{ informe.lidercelula }}</td>
-      <td>{{ informe.meta }}</td>
+      <td>{{ informe.metrica }}</td>
       <td>{{ informe.mepcol }}</td>
       <td>{{ informe.celulacol }}</td>
       <td>{{ informe.ebcol }}</td>
@@ -38,10 +47,14 @@
       <td>{{ informe.celulaami }}</td>
       <td>{{ informe.ebami }}</td>
       <td>{{ informe.cultoami }}</td>
-      <td>{{ informe.puntos }}</td>
-      <td>{{ informe.dinero }}</td>
-
-
+      <td>{{ informe.puntuacion }}</td>
+      <td>{{ informe.ofrenda }}</td>
     </tr>
   </tbody>
 </table>
+
+</div>
+
+<div *ngIf="noresultados">
+  <p class="alert alert-danger">no existen coincidencias</p>
+</div>

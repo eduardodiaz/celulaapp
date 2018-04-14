@@ -29,6 +29,8 @@ import { InformesService } from './servicios/informes.service';
 import { IniciosesionComponent } from './autentificacion/iniciosesion/iniciosesion.component';
 import { AutentificacionService } from './servicios/autentificacion.service';
 import { RegistroComponent } from './autentificacion/registro/registro.component';
+import { GuardService } from './servicios/guard.service';
+
 //import { AddcelulasComponent } from './celulas/addcelulas/addcelulas.component';
 
 
@@ -39,21 +41,33 @@ import { RegistroComponent } from './autentificacion/registro/registro.component
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
-  { path: 'usuarios', component: UsuariosComponent },
-  { path: 'addusuarios', component: AddusuariosComponent },
-  { path: 'editusuarios/:id', component: EdittusuariosComponent },
-  { path: 'celulas', component: CelulasComponent},
-  { path: 'addcelulas', component: AddcelulasComponent },
-  { path: 'editcelulas/:id', component: EditcelulasComponent},
-  { path: 'reportes', component: ReportesComponent },
-  { path: 'addreportes', component: AddreportesComponent }, 
+  { path: 'usuarios', component: UsuariosComponent,
+  canActivate: [GuardService] },
+  { path: 'addusuarios', component: AddusuariosComponent,
+  canActivate: [GuardService] },
+  { path: 'editusuarios/:id', component: EdittusuariosComponent,
+  canActivate: [GuardService] },
+  { path: 'celulas', component: CelulasComponent,
+  canActivate: [GuardService]},
+  { path: 'addcelulas', component: AddcelulasComponent,
+  canActivate: [GuardService] },
+  { path: 'editcelulas/:id', component: EditcelulasComponent,
+  canActivate: [GuardService]},
+  { path: 'reportes', component: ReportesComponent,
+  canActivate: [GuardService] },
+  { path: 'addreportes', component: AddreportesComponent,
+  canActivate: [GuardService] }, 
  // { path: 'graficas', component: GraficasComponent },
  //{ path: 'barra', component: BarrasComponent },
-  { path: 'informes', component: InformesComponent },
-  { path: 'addinformes', component: AddinformesComponent },
-  { path: 'concentrado', component: ConcentradoComponent},
+  { path: 'informes', component: InformesComponent,
+  canActivate: [GuardService] },
+  { path: 'addinformes', component: AddinformesComponent,
+  canActivate: [GuardService] },
+  { path: 'concentrado', component: ConcentradoComponent,
+  canActivate: [GuardService]},
   { path: 'login', component: IniciosesionComponent},
-  { path: 'registro', component: RegistroComponent }, 
+  { path: 'registro', component: RegistroComponent,
+  canActivate: [GuardService] }, 
   { path: '**', component: InicioComponent }
 ];
 
@@ -93,7 +107,8 @@ const routes: Routes = [
     CelulasService,
     ReportesService,
     InformesService,
-    AutentificacionService ],
+    AutentificacionService, 
+    GuardService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,32 +8,48 @@
   <div class="collapse navbar-collapse" id="containerNavbar">
     <ul class="navbar-nav mr-auto w-100 justify-content-end">
       <li class="nav-item" routerLinkActive="active"   
-          [routerLinkActiveOptions]="{exact:true}">
+          [routerLinkActiveOptions]="{exact:true}"
+          *ngIf="isAuth()">
           <a class="nav-link" routerLink="/">Inicio</a>
       </li>
       <li class="nav-item" routerLinkActive="active"
-          [routerLinkActiveOptions]="{exact:true}">
+          [routerLinkActiveOptions]="{exact:true}"
+          *ngIf="isAuth()">
           <a class="nav-link" routerLink="/usuarios">Usuarios</a>
       </li>
       <li class="nav-item" routerLinkActive="active"
-          [routerLinkActiveOptions]="{exact:true}">
+          [routerLinkActiveOptions]="{exact:true}"
+          *ngIf="isAuth()">
           <a class="nav-link" routerLink="/celulas">Celulas</a>
       </li>
-      <li class="nav-item" routerLinkActive="active"
-          [routerLinkActiveOptions]="{exact:true}">
+      <!-- <li class="nav-item" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact:true}"
+          *ngIf="isAuth()">
           <a class="nav-link" routerLink="/reportes">Reportes</a>
-      </li>
+      </li> -->
       <li class="nav-item" routerLinkActive="active"
-          [routerLinkActiveOptions]="{exact:true}">
+          [routerLinkActiveOptions]="{exact:true}"
+          *ngIf="isAuth()">
           <a class="nav-link" routerLink="/informes">Informes</a>
       </li>
       <li class="nav-item" routerLinkActive="active"
-          [routerLinkActiveOptions]="{exact:true}">
+          [routerLinkActiveOptions]="{exact:true}"
+          *ngIf="isAuth()">
           <a class="nav-link" routerLink="/concentrado">Concentrado</a>
-      </li>
+      </li>      
       <li class="nav-item" routerLinkActive="active"
-          [routerLinkActiveOptions]="{exact:true}">
-          <a class="nav-link" routerLink="/registro">Registro</a>
+          [routerLinkActiveOptions]="{exact:true}"
+          *ngIf="!isAuth()">
+          <button class="btn btn-success" routerLink="/login">Inicio Sesion</button>
+      </li>      
+      <li class="nav-item" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact:true}"
+          *ngIf="isAuth()">
+          <button class="btn btn-danger" 
+                (click)="onLogout()"
+                routerLink="/login">Cerrar Sesion <i class="fas fa-sign-out-alt"></i>
+
+            </button>
       </li>
       
     </ul>

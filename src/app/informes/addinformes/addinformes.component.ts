@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { InformesService } from '../../servicios/informes.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,9 @@ export class AddinformesComponent implements OnInit {
   informe: any;
 
   constructor(private pf: FormBuilder,
-              private informesService: InformesService) { }
+              private informesService: InformesService,
+              private activatedRouter: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
     this.informeForm = this.pf.group({
@@ -27,9 +30,9 @@ export class AddinformesComponent implements OnInit {
       celulaami: ['', Validators.required ],
       ebami: ['', Validators.required ],
       cultoami: ['', Validators.required ],
-      puntos: ['', Validators.required ],
-      dinero: ['', Validators.required ],
-      meta: ['', Validators.required ]
+      puntuacion: ['', Validators.required ],
+      ofrenda: ['', Validators.required ],
+      metrica: ['', Validators.required ]
 
     });
 
@@ -41,23 +44,25 @@ export class AddinformesComponent implements OnInit {
       .subscribe(newinforme => {
 
       })
+      confirm('Haz enviado tu informe. Pasaras a Estudios Personalizados.');
+      if(confirm){
+        this.router.navigate(['/login']);
+      }
       this.informeForm.reset();
-      confirm('Felicidades, has enviado tu reporte, deseas llenar EP?');
-        if(confirm){
-          confirm('pasaras al formulario de EP');
-        }
+     
       }
     
 
-    newtask(){
-      if(this.onSubmit){
-        confirm('nueva ventana');
-      }
-    }
+    // newtask(){
+    //   if(this.onSubmit){
+    //     confirm('nueva ventana');
+    //   }
+    // }
 
     saveInforme(){
       const saveInforme = {
         lidercelula: this.informeForm.get('lidercelula').value,
+        meta: this.informeForm.get('meta').value,
         semanaleccion: this.informeForm.get('semanaleccion').value,
         mepcol: this.informeForm.get('mepcol').value,
         celulacol: this.informeForm.get('celulacol').value,
@@ -66,9 +71,9 @@ export class AddinformesComponent implements OnInit {
         celulaami: this.informeForm.get('celulaami').value,
         ebami: this.informeForm.get('ebami').value,
         cultoami: this.informeForm.get('cultoami').value,
-        puntuacion: this.informeForm.get('puntos').value,
-        ofrenda: this.informeForm.get('dinero').value,
-        logrometa: this.informeForm.get('meta').value
+        puntuacion: this.informeForm.get('puntuacion').value,
+        ofrenda: this.informeForm.get('ofrenda').value,
+        metrica: this.informeForm.get('metrica').value
       }
 
       return saveInforme;

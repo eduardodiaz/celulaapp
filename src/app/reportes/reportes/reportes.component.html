@@ -1,24 +1,41 @@
 <h3>Listado de Reportes</h3>
 <a class="btn btn-primary float-md-right" routerLink="/addreportes">Añadir nuevo Reporte<i class="fas fa-user-plus"></i></a>
-<a class="btn btn-secondary float-md-left" routerLink="/">Atras <i class="fas fa-arrow-circle-left"></i></a>
-<br>
+<p class="alert alert-info float-md-left" > Seleccione una fecha del calendario</p>
+
+<input type="date" class="form-control" placeholder="seleccione una fecha"
+  [formControl]="campoBusqueda">
+
+<div *ngIf="cargando" class="text-center" style="padding-top:60px">
+  <img src="../../../assets/cargando.gif" alt="cargando">
+</div>
+
+<div *ngIf="resultados">
 
 <table class="table table-bordered table-hover table-sm" style="margin-top: 40px">
   <thead>
     <tr class="filters">
       <th>Fecha</th>
-      <th>Semana-Leccion</th>
-      <th>Verbo-Meta</th>
+      <th>Proceso</th>
+      <th>Cuatrimestre</th>
+      <th>Semana</th>
+      <th>verbo</th>
       <th>Evento</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let reporte of reportes">
       <td>{{ reporte.fecha }}</td>
-      <td>{{ reporte.semanaleccion }}</td>
+      <td>{{ reporte.proceso }}</td>
+      <td>{{ reporte.cuatrimestre }}</td>
+      <td>{{ reporte.semana }}</td>
       <td>{{ reporte.verbo }}</td>
       <td>{{ reporte.evento }}</td>
       
     </tr>
   </tbody>
 </table>
+</div>
+<div *ngIf="noresultados">
+  <p class="alert alert-danger">no existen coincidencias</p>
+  
+</div>

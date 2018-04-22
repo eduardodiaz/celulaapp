@@ -4,7 +4,7 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class InformesService {
-
+  
   informesURL = 'https://appcelula-391e5.firebaseio.com/informes.json';
   informeURL = 'https://appcelula-391e5.firebaseio.com/informes';
 
@@ -63,11 +63,9 @@ export class InformesService {
 
   getInformeFecha(busqueda: string){
     //indica cual sera el campo a buscar
-    const url = (`${this.informesURL }?orderBy="lidercelula"&startAt="${ busqueda }"&endAt="${busqueda}\uf8ff"`)
+    const url = (`${this.informesURL }?orderBy="semanaleccion"&startAt="${ busqueda }"&endAt="${busqueda}\uf8ff"`)
     return this.http.get(url)
       .map( res=> res.json());
   }
-
-
 
 }

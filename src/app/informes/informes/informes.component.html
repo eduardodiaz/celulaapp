@@ -1,7 +1,8 @@
 <h3>Informes</h3>
 
 <a class="btn btn-primary float-md-right" routerLink="/addinformes">Añadir nuevo Informe <i class="fas fa-user-plus"> </i></a>
-<input type="text" class="form-control" placeholder="seleccione una fecha"
+<p class="alert alert-info float-md-left" > Seleccione una fecha del calendario</p>
+<input type="date" class="form-control" placeholder="seleccione una fecha"
   [formControl]="campoBusqueda">
 <!-- <form>
   <label for="semana">Semana</label>
@@ -18,13 +19,12 @@
 </div>
 
 
-
 <div *ngIf="resultados">
-<table class="table table-bordered table-hover table-sm">
+<table class="table table-bordered table-hover table-sm" style="margin-top: 15px">
   <thead>
     <tr class="filters">
       <th>Grupo</th>
-      <th>Metrica</th>
+      <th>Meta</th>
       <th>MEP</th>
       <th>Celula</th>
       <th>Culto</th>
@@ -39,7 +39,7 @@
   <tbody>
     <tr *ngFor="let informe of informes">
       <td>{{ informe.lidercelula }}</td>
-      <td>{{ informe.metrica }}</td>
+      <td>{{ informe.meta }}</td>
       <td>{{ informe.mepcol }}</td>
       <td>{{ informe.celulacol }}</td>
       <td>{{ informe.ebcol }}</td>
@@ -48,7 +48,7 @@
       <td>{{ informe.ebami }}</td>
       <td>{{ informe.cultoami }}</td>
       <td>{{ informe.puntuacion }}</td>
-      <td>{{ informe.ofrenda }}</td>
+      <td>{{ informe.ofrenda  }}</td>
     </tr>
   </tbody>
 </table>

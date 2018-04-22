@@ -30,6 +30,7 @@ import { IniciosesionComponent } from './autentificacion/iniciosesion/iniciosesi
 import { AutentificacionService } from './servicios/autentificacion.service';
 import { RegistroComponent } from './autentificacion/registro/registro.component';
 import { GuardService } from './servicios/guard.service';
+import { EstudiospersonalizadosComponent } from './estudiospersonalizados/estudiospersonalizados/estudiospersonalizados.component';
 
 //import { AddcelulasComponent } from './celulas/addcelulas/addcelulas.component';
 
@@ -91,6 +92,8 @@ const routes: Routes = [
     EditcelulasComponent,
     IniciosesionComponent,
     RegistroComponent,
+    EstudiospersonalizadosComponent,
+    
     //AddcelulasComponent
   ],
   imports: [
@@ -108,7 +111,8 @@ const routes: Routes = [
     ReportesService,
     InformesService,
     AutentificacionService, 
-    GuardService ],
+    GuardService 
+     ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

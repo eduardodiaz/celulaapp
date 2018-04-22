@@ -1,9 +1,8 @@
 <h3>Listado de Usuarios</h3>
 <a class="btn btn-primary float-md-right" routerLink="/addusuarios">Añadir nuevo Usuario <i class="fas fa-user-plus"></i></a>
-      <input type="search" class="form-control" placeholder="Teclee un usuario...."
+
+      <input type="search" class="form-control" placeholder="Teclee tipo de usuario...."
       [formControl]="campoBusqueda">
-      <!-- <input type="search" class="form-control" placeholder="Teclee tipo de usuario...."
-      [formControl]="campoBusqueda1"> -->
 <div *ngIf="cargando" class="text-center" style="padding-top:60px">
   <img src="../../../assets/cargando.gif" alt="cargando">
 </div>
@@ -41,5 +40,5 @@
   </table>
 </div>
 <div *ngIf="noresultados">
-  <p>no existen coincidencias</p>
+  <p class="alert alert-danger">no existen coincidencias</p>
 </div>

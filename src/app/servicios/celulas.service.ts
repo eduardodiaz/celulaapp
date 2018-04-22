@@ -69,6 +69,4 @@ export class CelulasService {
       .map( res=> res.json());
   }
 
-
-
 }

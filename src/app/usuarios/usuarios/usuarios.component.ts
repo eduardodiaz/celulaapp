@@ -13,6 +13,9 @@ import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
 })
 export class UsuariosComponent implements OnInit {
 
+  public radiodata: any;
+
+  criterioBusqueda: FormControl;
   campoBusqueda: FormControl;
 
   campoBusqueda1: FormControl;
@@ -44,6 +47,9 @@ export class UsuariosComponent implements OnInit {
 
 
   ngOnInit() {
+
+    this.radiodata = 1;
+
     // this.campoBusqueda = new FormControl();
     // this.campoBusqueda.valueChanges
     //   .subscribe(term => {
@@ -76,6 +82,7 @@ export class UsuariosComponent implements OnInit {
       this.campoBusqueda = new FormControl();
       this.campoBusqueda.valueChanges
       .subscribe(term => {
+        
         this.busqueda = term;
         this.cargando = true;
         if(this.busqueda.length !== 0){

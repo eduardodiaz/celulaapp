@@ -1,18 +1,14 @@
 <h3>Informes</h3>
+<p class="alert alert-info float-md-left">Seleccione una fecha del calendario</p>
+<a class="btn btn-primary float-md-right" routerLink="/addinformes">Añadir nuevo Informe
+  <i class="far fa-edit"></i>
+</a>
+<button type="button" class="btn btn-outline-info float-md-right" data-toggle="tooltip" data-placement="left" title="Pulsando al botón de la derecha, podrás agregar nuevo Informe.">
+  <i class="fas fa-info"></i>
+</button>
 
-<a class="btn btn-primary float-md-right" routerLink="/addinformes">Añadir nuevo Informe <i class="fas fa-user-plus"> </i></a>
-<p class="alert alert-info float-md-left" > Seleccione una fecha del calendario</p>
-<input type="date" class="form-control" placeholder="seleccione una fecha"
-  [formControl]="campoBusqueda">
-<!-- <form>
-  <label for="semana">Semana</label>
-  <input type="date" class="form-control" name="semana" id="semana">
-  <label for="año">Año</label>
-  <input type="date" class="form-control" name="año" id="año">
-  <button type="submit" class="btn btn-primary">
-    Buscar
-  </button>
-</form> -->
+<input type="date" class="form-control" placeholder="seleccione una fecha" [formControl]="campoBusqueda">
+
 
 <div *ngIf="cargando" class="text-center" style="padding-top:60px">
   <img src="../../../assets/cargando.gif" alt="cargando">
@@ -20,41 +16,65 @@
 
 
 <div *ngIf="resultados">
-<table class="table table-bordered table-hover table-sm" style="margin-top: 15px">
-  <thead>
-    <tr class="filters">
-      <th>Grupo</th>
-      <th>Meta</th>
-      <th>MEP</th>
-      <th>Celula</th>
-      <th>Culto</th>
-      <th>EB</th>
-      <th>Celula</th>
-      <th>Culto</th>
-      <th>EB</th>
-      <th>Puntuacion</th>
-      <th>Ofrenda</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let informe of informes">
-      <td>{{ informe.lidercelula }}</td>
-      <td>{{ informe.meta }}</td>
-      <td>{{ informe.mepcol }}</td>
-      <td>{{ informe.celulacol }}</td>
-      <td>{{ informe.ebcol }}</td>
-      <td>{{ informe.cultocol }}</td>
-      <td>{{ informe.celulaami }}</td>
-      <td>{{ informe.ebami }}</td>
-      <td>{{ informe.cultoami }}</td>
-      <td>{{ informe.puntuacion }}</td>
-      <td>{{ informe.ofrenda  }}</td>
-    </tr>
-  </tbody>
-</table>
-
+  <table class="table table-bordered table-hover table-sm" style="margin-top: 15px">
+    <thead>
+      <tr class="filters">
+        <th>Grupo</th>
+        <th>Evento</th>
+        <th>Semana</th>
+        <th>Meta</th>
+        <th>MEP C</th>
+        <th>Célula C</th>
+        <th>Culto C</th>
+        <th>EB C</th>
+        <th>Célula A</th>
+        <th>Culto A</th>
+        <th>EB A</th>
+        <th>Puntuación</th>
+        <th>Ofrenda</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let informe of informes">
+        <td>{{ informe.lidercelula }}</td>
+        <td>{{ informe.evento }}</td>
+        <td>{{ informe.semana }}</td>
+        <td>{{ informe.meta }}</td>
+        <td>{{ informe.mepcol }}</td>
+        <td>{{ informe.celulacol }}</td>
+        <td>{{ informe.ebcol }}</td>
+        <td>{{ informe.cultocol }}</td>
+        <td>{{ informe.celulaami }}</td>
+        <td>{{ informe.ebami }}</td>
+        <td>{{ informe.cultoami }}</td>
+        <td>{{ informe.puntuacion }}</td>
+        <td>{{ informe.ofrenda }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-
+<div *ngIf="resultados">
+  <table class="table table-bordered table-hover table-sm" style="margin-top: 15px">
+    <thead>
+      <tr class="filters">
+        <th>Grupo</th>
+        <th>EP Ganar</th>
+        <th>EP Afirmar</th>
+        <th>EP Discipular</th>
+        <th>Total EP</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let informe of informes">
+        <td>{{ informe.lidercelula }}</td>
+        <td>{{ informe.epGanar }}</td>
+        <td>{{ informe.epAfirmar }}</td>
+        <td>{{ informe.epDiscipular}}</td>
+        <td>{{ informe.epGanar + informe.epAfirmar + informe.epDiscipular }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 <div *ngIf="noresultados">
-  <p class="alert alert-danger">no existen coincidencias</p>
+  <p class="alert alert-danger">No existen coincidencias</p>
 </div>

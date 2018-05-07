@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import {ToastModule} from 'ng2-toastr/ng2-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 import { AppComponent } from './app.component';
@@ -30,15 +32,7 @@ import { IniciosesionComponent } from './autentificacion/iniciosesion/iniciosesi
 import { AutentificacionService } from './servicios/autentificacion.service';
 import { RegistroComponent } from './autentificacion/registro/registro.component';
 import { GuardService } from './servicios/guard.service';
-import { EstudiospersonalizadosComponent } from './estudiospersonalizados/estudiospersonalizados/estudiospersonalizados.component';
-
-//import { AddcelulasComponent } from './celulas/addcelulas/addcelulas.component';
-
-
-//firebase
-//import { AngularFireModule } from  'angularfire2';
-//import { AngularFireDatabaseModule } from 'angularfire2/database';
-//import { environment } from '../environments/environment';
+import { AyudaComponent } from './ayuda/ayuda/ayuda.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
@@ -69,6 +63,7 @@ const routes: Routes = [
   { path: 'login', component: IniciosesionComponent},
   { path: 'registro', component: RegistroComponent,
   canActivate: [GuardService] }, 
+  { path: 'ayuda', component: AyudaComponent },
   { path: '**', component: InicioComponent }
 ];
 
@@ -92,7 +87,8 @@ const routes: Routes = [
     EditcelulasComponent,
     IniciosesionComponent,
     RegistroComponent,
-    EstudiospersonalizadosComponent,
+    AyudaComponent,
+    
     
     //AddcelulasComponent
   ],
@@ -103,7 +99,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     //ChartsModule,
     //AngularFireDatabaseModule,
-    HttpModule
+    HttpModule,
+    BrowserAnimationsModule, ToastModule.forRoot()
   ],
   providers: [ 
     UsuariosService,

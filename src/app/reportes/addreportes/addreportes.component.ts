@@ -24,7 +24,6 @@ export class AddreportesComponent implements OnInit {
       proceso: ['', Validators.required ],
       cuatrimestre: ['', Validators.required ],
       semana: ['', Validators.required ],
-      verbo: ['', Validators.required ],
       evento: ['', Validators.required ]
     });
   }
@@ -44,7 +43,6 @@ export class AddreportesComponent implements OnInit {
       proceso: this.reporteForm.get('proceso').value,
       cuatrimestre: this.reporteForm.get('cuatrimestre').value,
       semana: this.reporteForm.get('semana').value, 
-      verbo: this.reporteForm.get('verbo').value, 
       evento: this.reporteForm.get('evento').value
     }
 

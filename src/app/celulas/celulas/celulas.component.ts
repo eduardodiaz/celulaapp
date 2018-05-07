@@ -73,7 +73,7 @@ export class CelulasComponent implements OnInit {
             for(const id$ in celulas){
               const p = celulas[id$];
               p.id$ = id$;
-              this.celulas.push(celulas[id$]);
+//this.celulas.push(celulas[id$]);
             }
           })
       })

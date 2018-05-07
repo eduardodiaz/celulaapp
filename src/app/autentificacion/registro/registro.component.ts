@@ -14,10 +14,11 @@ export class RegistroComponent implements OnInit {
   registroForm: FormGroup;
   userdata: any;
 
-  erroresForm ={
+  erroresForm = {
     'email': '',
     'password': ''
   }
+  
   mensajeValidacion = {
     'email': {
       'required': 'Email Obligatorio',

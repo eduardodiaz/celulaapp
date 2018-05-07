@@ -1,47 +1,49 @@
-<h3>Listado de Celulas</h3>
-<a class="btn btn-primary float-md-right" routerLink="/addcelulas">Añadir nueva celula <i class="fas fa-user-plus"></i></a>
-  <input type="search" class="form-control" placeholder="Teclee un lider..."
-   [formControl]="campoBusqueda">
+<h3>Listado de Células</h3>
+<a class="btn btn-primary float-md-right" routerLink="/addcelulas">Añadir nueva Célula
+  <i class="fas fa-home"></i>
+</a>
+<button type="button" class="btn btn-outline-info float-md-right" data-toggle="tooltip" data-placement="left" title="Pulsando al botón de la derecha, podrás agregar nueva célula.">
+  <i class="fas fa-info"></i>
+</button>
+<input type="search" class="form-control" placeholder="Teclee un lider..." [formControl]="campoBusqueda">
 <div *ngIf="cargando" class="text-center" style="padding-top: 60px">
   <img src="../../../assets/cargando.gif" alt="cargando">
 </div>
 <br>
 <div *ngIf="resultados">
-<table class="table table-bordered table-hover table-sm" style="margin-top: 15px">
-  <thead>
-    <tr class="filters">
-      <th># Celula</th>
-      <th>Lider</th>
-      <th># Colaboradores</th>
-      <th>Direccion</th>
-      <th>Dia-Hora reunion</th>
-      <th>Editar</th>
-      <th>Eliminar</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let celula of celulas">
-      <td>{{ celula.nocelula}}</td>
-      <td>{{ celula.lider }}</td>
-      <td>{{ celula.nocolaboradores }}</td>
-      <td>{{ celula.direccion }}</td>
-      <td>{{ celula.hrreunion + " los " +celula.diareunion }}</td>
-      <td>
-        <button type="button" class="btn btn-success"
-                  routerLink="/editcelulas/{{ celula.id$ }}">
-                  <i class="fas fa-pencil-alt"></i>
-        </button>
-      </td>
-      <td>
-        <button type="button" class="btn btn-danger"
-                (click)="eliminarCelula(celula.id$)">
-                <i class="fas fa-trash-alt"></i>
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+  <table class="table table-bordered table-hover table-sm" style="margin-top: 10px">
+    <thead>
+      <tr class="filters">
+        <th># Celula</th>
+        <th>Lider</th>
+        <th># Colaboradores</th>
+        <th>Direccion</th>
+        <th>Dia-Hora reunion</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let celula of celulas">
+        <td>{{ celula.nocelula}}</td>
+        <td>{{ celula.lider }}</td>
+        <td>{{ celula.nocolaboradores }}</td>
+        <td>{{ celula.direccion }}</td>
+        <td>{{ celula.hrreunion + " los " +celula.diareunion }}</td>
+        <td>
+          <button type="button" class="btn btn-success" routerLink="/editcelulas/{{ celula.id$ }}">
+            <i class="fas fa-pencil-alt"></i>
+          </button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger" (click)="eliminarCelula(celula.id$)">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 <div *ngIf="noresultados">
-    <p class="alert alert-danger">no existen coincidencias</p>
-  </div>
+  <p class="alert alert-danger">No existen coincidencias</p>
+</div>

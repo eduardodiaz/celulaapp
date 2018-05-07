@@ -1,6 +1,10 @@
 <h3>Listado de Reportes</h3>
-<a class="btn btn-primary float-md-right" routerLink="/addreportes">Añadir nuevo Reporte<i class="fas fa-user-plus"></i></a>
 <p class="alert alert-info float-md-left" > Seleccione una fecha del calendario</p>
+<a class="btn btn-primary float-md-right" routerLink="/addreportes">Añadir nuevo Reporte <i class="fas fa-list-ul"></i></a>
+<button type="button" class="btn btn-outline-info float-md-right" data-toggle="tooltip" data-placement="left" title="Pulsando al botón de la derecha, podrás agregar nuevo reporte.">
+    <i class="fas fa-info"></i>
+</button>
+
 
 <input type="date" class="form-control" placeholder="seleccione una fecha"
   [formControl]="campoBusqueda">
@@ -11,14 +15,13 @@
 
 <div *ngIf="resultados">
 
-<table class="table table-bordered table-hover table-sm" style="margin-top: 40px">
+<table class="table table-bordered table-hover table-sm" style="margin-top: 10px">
   <thead>
     <tr class="filters">
       <th>Fecha</th>
       <th>Proceso</th>
       <th>Cuatrimestre</th>
       <th>Semana</th>
-      <th>verbo</th>
       <th>Evento</th>
     </tr>
   </thead>
@@ -28,14 +31,13 @@
       <td>{{ reporte.proceso }}</td>
       <td>{{ reporte.cuatrimestre }}</td>
       <td>{{ reporte.semana }}</td>
-      <td>{{ reporte.verbo }}</td>
       <td>{{ reporte.evento }}</td>
-      
+
     </tr>
   </tbody>
 </table>
 </div>
 <div *ngIf="noresultados">
-  <p class="alert alert-danger">no existen coincidencias</p>
+  <p class="alert alert-danger">No existen coincidencias</p>
   
 </div>

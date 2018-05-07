@@ -1,14 +1,20 @@
 <h3>Concentrado</h3>
-<br>
-<form>
-  <label for="semana">Semana</label>
-  <input type="date" class="form-control" name="semana" id="semana">
-  <label for="año">Año</label>
-  <input type="date" class="form-control" name="año" id="año">
-  <button type="submit" class="btn btn-primary">
-    Buscar
-  </button>
-</form>
+<p class="alert alert-info float-md-left"> Seleccione una fecha del calendario</p>
+<a class="btn btn-primary float-md-right" routerLink="/">Regresar
+  <i class="fas fa-list-ul"></i>
+</a>
+<button type="button" class="btn btn-outline-info float-md-right" data-toggle="tooltip" data-placement="left" title="Pulsando al botón de la derecha, podrás agregar nuevo reporte.">
+  <i class="fas fa-info"></i>
+</button>
+
+<input type="date" class="form-control" placeholder="seleccione una fecha"
+  [formControl]="campoBusqueda">
+<h5>Concentrado</h5>
+
+<div *ngIf="cargando" class="text-center" style="padding-top:60px">
+    <img src="../../../assets/cargando.gif" alt="cargando">
+  </div>
+  <div *ngIf="resultados"> 
 <table class="table table-bordered table-hover table-sm">
   <thead>
     <tr class="filters">
@@ -16,13 +22,20 @@
       <th>Meta</th>
       <th>MEP</th>
       <th>Celula</th>
-      <th>Culto</th>
-      <th>EB</th>
-      <th>Celula</th>
-      <th>Culto</th>
-      <th>EB</th>
-      <th>Puntuacion</th>
-      <th>Ofrenda</th>
+      <th>evento</th>
     </tr>
   </thead>
+  <tbody>
+    <tr *ngFor="let informe of informes">
+      <td>{{ informe.fecha }}</td>
+      <td>{{ informe.cuatrimestre }}</td>
+      <td>{{ informe.semana }}</td>
+      <td>{{ informe.evento }}</td>
+      <td>{{ informe.evento }}</td>
+    </tr>
+  </tbody>
 </table>
+</div>
+<div *ngIf="noresultados">
+    <p class="alert alert-danger">No existen coincidencias</p>
+  </div>

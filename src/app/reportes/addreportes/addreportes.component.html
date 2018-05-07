@@ -1,138 +1,91 @@
 <div class="row">
-    <div class="col col-md"></div>
-    <div class="col-10 col-md-8">
-      <h2>Añadir nuevo reporte</h2>
-      <a class="btn btn-warning float-md-left" routerLink="/">Atras <i class="fas fa-arrow-circle-left"></i></a>
+  <div class="col col-md"></div>
+  <div class="col-10 col-md-8">
+    <h2>Añadir nuevo reporte</h2>
+    <a class="btn btn-warning float-md-right" routerLink="/reportes">
+      <i class="fas fa-undo-alt"></i> Regresar</a>
 
-      <form [formGroup]="reporteForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label for="fecha">Fecha</label>
-          <input type="date"
-                  class="form-control"
-                  id="fecha"
-                  formControlName="fecha">
-            <p class="alert alert-danger"
-                *ngIf="reporteForm.controls.fecha.invalid &&
+    <form [formGroup]="reporteForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="fecha">Fecha</label>
+        <input type="date" class="form-control" id="fecha" formControlName="fecha">
+        <p class="alert alert-danger" *ngIf="reporteForm.controls.fecha.invalid &&
                         reporteForm.controls.fecha.touched">
-              El campo Fecha es obligatorio.        
-              </p>
-        </div>
-        <div class="form-group">
-          <label for="proceso">Proceso</label>
-          <select class="form-control" 
-                id="proceso"
-                formControlName="proceso">
-                <option value="">Seleccione proceso...</option>
-                <option value="Ganar">Ganar</option>
-                <option value="Afirmar">Afirmar</option>
-                <option value="Discipular">Discipular</option>
-        </select>
-            <p class="alert alert-danger"
-                *ngIf="reporteForm.controls.proceso.invalid &&
-                        reporteForm.controls.proceso.touched">
-              El campo Proceso es obligatorio.        
-              </p>
-        </div>
-        <div class="form-group">
-          <label for="cuatrimestre">Cuatrimestre</label>
-          <select class="form-control" 
-                id="cuatrimestre"
-                formControlName="cuatrimestre">
-                <option value="">Seleccione cuatrimestre...</option>
-                <option value="Enero-Abril">Enero-Abril</option>
-                <option value="Mayo-Agosto">Mayo-Agosto</option>
-                <option value="Septiembre-Diciembre">Septiembre-Diciembre</option>
-        </select>
-            <p class="alert alert-danger"
-                *ngIf="reporteForm.controls.cuatrimestre.invalid &&
-                        reporteForm.controls.cuatrimestre.touched">
-              El campo Cuatrimestre es obligatorio.        
-              </p>
-        </div>
-        <div class="form-group">
-          <label for="semana">Semana</label>
-          <select class="form-control" 
-                id="semana"
-                formControlName="semana">
-                <option value="">Seleccione semana...</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-        </select>
-            <p class="alert alert-danger"
-                *ngIf="reporteForm.controls.semana.invalid &&
-                        reporteForm.controls.semana.touched">
-              El campo semana es obligatorio.        
-              </p>
-        </div>
-        <div class="form-group">
-        <label for="verbo">Verbo</label>
-        <select class="form-control" 
-                id="verbo"
-                formControlName="verbo">
-                <option value="">Seleccione verbo...</option>
-                <option value="Orar">Orar</option>
-                <option value="Anotar">Anotar</option>
-                <option value="Contactar">Contactar</option>
-                <option value="Confirmar">Confirmar</option>
-                <option value="Desatar">Desatar</option>
-                <option value="Llevar">Llevar</option>
-                <option value="Motivar">Motivar</option>
-                <option value="Consolidar">Consolidar</option>
-                <option value="Orar">Orar</option>
-                <option value="Anotar">Anotar</option>
-                <option value="Contactar">Contactar</option>
-                <option value="Confirmar">Confirmar</option>
-                <option value="Desatar">Desatar</option>
-                <option value="Llevar">Llevar</option>
-                <option value="Motivar">Motivar</option>
-                <option value="Consolidar">Consolidar</option>
-        </select>
-                <p class="alert alert-danger"
-                *ngIf="reporteForm.controls.semana.invalid &&
-                        reporteForm.controls.semana.touched">
-                El campo semana es obligatorio.        
-                </p>
-        </div>
-        <div class="form-group">
-        <label for="evento">evento</label>
-        <select class="form-control" 
-                id="evento"
-                formControlName="evento">
-                <option value="">Seleccione evento...</option>
-                <option value="FiestaAmigo">Fiesta del Amigo</option>
-                <option value="Encuentro">Encuentro</option>
-                <option value="FiestaCosecha">Fiesta de la Cosecha</option>
-        </select>
-                <p class="alert alert-danger"
-                *ngIf="reporteForm.controls.evento.invalid &&
-                        reporteForm.controls.evento.touched">
-                El campo evento es obligatorio.        
-                </p>
-        </div>
-        <button type="submit"
-                class="btn btn-primary"
-                [disabled]="!reporteForm.valid">
-                Añadir Reporte      
-        </button>
-        <p class="alert alert-danger"
-        *ngIf="!reporteForm.valid">
-          Por favor de llenar todos los campos obligatorios
+          El campo Fecha es obligatorio.
         </p>
-      </form>
       </div>
-      <div class="col col-md"></div>
+      <div class="form-group">
+        <label for="proceso">Proceso</label>
+        <select class="form-control" id="proceso" formControlName="proceso">
+          <option value="">Seleccione proceso...</option>
+          <option value="Ganar">Ganar</option>
+          <option value="Afirmar">Afirmar</option>
+          <option value="Discipular">Discipular</option>
+        </select>
+        <p class="alert alert-danger" *ngIf="reporteForm.controls.proceso.invalid &&
+                        reporteForm.controls.proceso.touched">
+          El campo Proceso es obligatorio.
+        </p>
       </div>
+      <div class="form-group">
+        <label for="cuatrimestre">Cuatrimestre</label>
+        <select class="form-control" id="cuatrimestre" formControlName="cuatrimestre">
+          <option value="">Seleccione cuatrimestre...</option>
+          <option value="Enero-Abril">Enero-Abril</option>
+          <option value="Mayo-Agosto">Mayo-Agosto</option>
+          <option value="Septiembre-Diciembre">Septiembre-Diciembre</option>
+        </select>
+        <p class="alert alert-danger" *ngIf="reporteForm.controls.cuatrimestre.invalid &&
+                        reporteForm.controls.cuatrimestre.touched">
+          El campo Cuatrimestre es obligatorio.
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="semana">Semana</label>
+        <select class="form-control" id="semana" formControlName="semana">
+          <option value="">Seleccione semana...</option>
+          <option value="1 Orar">1 - Orar</option>
+          <option value="2 Anotar">2 - Anotar</option>
+          <option value="3 Contactar">3 - Contactar</option>
+          <option value="4 Confirmar">4 - Confirmar</option>
+          <option value="5 Desatar">5 - Desatar</option>
+          <option value="6 Llevar">6 - Llevar</option>
+          <option value="7 Sostener">7 - Sostener</option>
+          <option value="8 Motivar">8 - Motivar</option>
+          <option value="9 Afirmar">9 - Afirmar</option>
+          <option value="10 Preparar">10 - Preparar</option>
+          <option value="11 Santificar">11 - Santificar</option>
+          <option value="12 Concientizar">12 - Concientizar</option>
+          <option value="13 Conservar">13 - Conservar</option>
+          <option value="14 Doctrinar">14 - Doctrinar</option>
+          <option value="15 Discipular">15 - Discipular</option>
+          <option value="16 Bautizar">16 - Bautizar</option>
+        </select>
+        <p class="alert alert-danger" *ngIf="reporteForm.controls.semana.invalid &&
+                        reporteForm.controls.semana.touched">
+          El campo semana es obligatorio.
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="evento">Evento</label>
+        <select class="form-control" id="evento" formControlName="evento">
+          <option value="">Seleccione evento...</option>
+          <option value="FiestaAmigo">Fiesta del Amigo</option>
+          <option value="Encuentro">Encuentro</option>
+          <option value="FiestaCosecha">Fiesta de la Cosecha</option>
+        </select>
+        <p class="alert alert-danger" *ngIf="reporteForm.controls.evento.invalid &&
+                        reporteForm.controls.evento.touched">
+          El campo evento es obligatorio.
+        </p>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!reporteForm.valid">
+        Añadir Reporte
+      </button>
+      <p class="alert alert-danger" *ngIf="!reporteForm.valid">
+        Por favor de llenar todos los campos obligatorios
+      </p>
+    </form>
+  </div>
+  <div class="col col-md"></div>
+</div>

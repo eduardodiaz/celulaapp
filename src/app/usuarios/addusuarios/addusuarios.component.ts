@@ -26,7 +26,9 @@ export class AddusuariosComponent implements OnInit {
     this.usuarioForm = this.pf.group({
       nombre: ['', Validators.required ],
       direccion: ['', Validators.required ],
-      telefono: ['', Validators.required ],
+      telefono: ['', Validators.required/* , 
+        Validators.maxLength(8) */
+      ],
       tipousuario: ['', Validators.required ],
       email: ['', [Validators.required, Validators.email ]],
       /*'password': ['', [Validators.required, 

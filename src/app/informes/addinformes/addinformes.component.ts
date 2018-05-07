@@ -20,6 +20,9 @@ export class AddinformesComponent implements OnInit {
     this.informeForm = this.pf.group({
       lidercelula: ['', Validators.required ],
       semanaleccion: ['', Validators.required ],
+      semana: ['', Validators.required ],
+      evento: ['', Validators.required ],
+      sector: ['', Validators.required ],
       mepcol: ['', Validators.required ],
       celulacol: ['', Validators.required ],
       ebcol: ['', Validators.required ],
@@ -27,6 +30,9 @@ export class AddinformesComponent implements OnInit {
       celulaami: ['', Validators.required ],
       ebami: ['', Validators.required ],
       cultoami: ['', Validators.required ],
+      epGanar: ['', Validators.required ],
+      epAfirmar: ['', Validators.required ],
+      epDiscipular: ['', Validators.required ],
       puntos: ['', Validators.required ],
       dinero: ['', Validators.required ],
       meta: ['', Validators.required ]
@@ -42,10 +48,10 @@ export class AddinformesComponent implements OnInit {
 
       })
       this.informeForm.reset();
-      confirm('Felicidades, has enviado tu reporte, deseas llenar EP?');
+     /*  confirm('Felicidades, has enviado tu reporte, deseas llenar EP?');
         if(confirm){
           confirm('pasaras al formulario de EP');
-        }
+        } */
       }
 
 
@@ -53,6 +59,9 @@ export class AddinformesComponent implements OnInit {
       const saveInforme = {
         lidercelula: this.informeForm.get('lidercelula').value,
         semanaleccion: this.informeForm.get('semanaleccion').value,
+        semana: this.informeForm.get('semana').value,
+        evento: this.informeForm.get('evento').value,
+        sector: this.informeForm.get('sector').value,
         mepcol: this.informeForm.get('mepcol').value,
         celulacol: this.informeForm.get('celulacol').value,
         ebcol: this.informeForm.get('ebcol').value,
@@ -60,6 +69,9 @@ export class AddinformesComponent implements OnInit {
         celulaami: this.informeForm.get('celulaami').value,
         ebami: this.informeForm.get('ebami').value,
         cultoami: this.informeForm.get('cultoami').value,
+        epAfirmar: this.informeForm.get('epAfirmar').value,
+        epGanar: this.informeForm.get('epGanar').value,
+        epDiscipular: this.informeForm.get('epDiscipular').value,
         puntuacion: this.informeForm.get('puntos').value,
         ofrenda: this.informeForm.get('dinero').value,
         meta: this.informeForm.get('meta').value

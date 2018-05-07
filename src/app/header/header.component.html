@@ -4,7 +4,7 @@
     aria-controls="containerNavbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#">Celula App</a>
+  <a class="navbar-brand" href="#">Celula App </a>
   <div class="collapse navbar-collapse" id="containerNavbar">
     <ul class="navbar-nav mr-auto w-100 justify-content-end">
       <li class="nav-item" routerLinkActive="active"   
@@ -20,7 +20,7 @@
       <li class="nav-item" routerLinkActive="active"
           [routerLinkActiveOptions]="{exact:true}"
           *ngIf="isAuth()">
-          <a class="nav-link" routerLink="/celulas">Celulas</a>
+          <a class="nav-link" routerLink="/celulas">Células</a>
       </li>
       <li class="nav-item" routerLinkActive="active"
           [routerLinkActiveOptions]="{exact:true}"
@@ -32,6 +32,16 @@
           *ngIf="isAuth()">
           <a class="nav-link" routerLink="/informes">Informes</a>
       </li>
+      <li class="nav-item" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact:true}"
+          *ngIf="isAuth()">
+          <a class="nav-link" routerLink="/ayuda">Ayuda</a>
+      </li>
+      <!-- <li class="nav-item" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact:true}"
+          *ngIf="isAuth()">
+          <a class="nav-link" routerLink="/concentrado">Concentrado</a>
+      </li> -->
       <!-- <li class="nav-item" routerLinkActive="active"
           [routerLinkActiveOptions]="{exact:true}"
           *ngIf="isAuth()">

@@ -1,13 +1,17 @@
 <h3>Listado de Usuarios</h3>
-<a class="btn btn-primary float-md-right" routerLink="/addusuarios">Añadir nuevo Usuario <i class="fas fa-user-plus"></i></a>
+<!-- <button class="btn btn-primary" (click)="showSuccess()">Toastr Tester</button> -->
 
+<a class="btn btn-primary float-md-right" routerLink="/addusuarios">Añadir nuevo Usuario <i class="fas fa-users"></i></a>
+<button type="button" class="btn btn-outline-info float-md-right" data-toggle="tooltip" data-placement="left" title="Pulsando al botón de la derecha, podrás agregar nuevo usuario.">
+    <i class="fas fa-info"></i>
+</button>
       <input type="search" class="form-control" placeholder="Teclee tipo de usuario...."
       [formControl]="campoBusqueda">
 <div *ngIf="cargando" class="text-center" style="padding-top:60px">
   <img src="../../../assets/cargando.gif" alt="cargando">
 </div>
 <div *ngIf="resultados">
-<table class="table table-bordered table-hover table-sm " style="margin-top: 15px">
+<table class="table table-bordered table-hover table-sm " style="margin-top: 10px">
   <thead>
     <tr class="filters">
         <th>Nombre</th>

@@ -8,8 +8,10 @@
               id="inputEmail"
               class="form-control"
               autofocus
-              formControlName="email">
-              <p class="alert alert-danger" *ngIf="erroresForm.email">
+              formControlName="email"
+              placeholder="ejemplo@ejemplo.com">
+              <p class="alert alert-danger" *ngIf="erroresForm.email"
+              >
                 {{ erroresForm.email }}
 
               </p>
@@ -17,7 +19,8 @@
       <input type="password"
               id="inputPassword"
               class="form-control"
-              formControlName="password">
+              formControlName="password"
+              placeholder="Ejemplo10">
               <p class="alert alert-danger" *ngIf="erroresForm.password">
                 {{ erroresForm.password }}
               </p>

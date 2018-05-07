@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CelulasService } from '../../servicios/celulas.service';
+import { ToastsManager } from 'ng2-toastr';
 
 @Component({
   selector: 'app-addcelulas',
@@ -13,7 +14,13 @@ export class AddcelulasComponent implements OnInit {
   celula: any;
 
   constructor(private pf: FormBuilder,
-              private celulaService: CelulasService) { }
+              private celulaService: CelulasService, public toastr: ToastsManager, vcr: ViewContainerRef) {
+                this.toastr.setRootViewContainerRef(vcr);
+   }
+     
+   showSuccess() {
+     this.toastr.success('You are awesome!', 'Success!');
+   }
 
   ngOnInit() {
     this.celulaForm = this.pf.group({
@@ -31,6 +38,7 @@ export class AddcelulasComponent implements OnInit {
   }
 
   onSubmit(){
+    
     this.celula = this.saveCelula();
     this.celulaService.postCelula(this.celula)
       .subscribe(newcelula => {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import * as firebase from 'firebase';
 
 
@@ -17,4 +17,6 @@ export class AppComponent implements OnInit {
 
     })
   }
+
+
 }
